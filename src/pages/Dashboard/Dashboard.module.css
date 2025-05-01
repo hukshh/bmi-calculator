@@ -1,0 +1,233 @@
+.dashboard {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+.grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 2fr 1fr;
+}
+
+.mainSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.chartContainer {
+  height: 300px;
+  margin: 1rem 0;
+}
+
+.goals {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.goalCard {
+  background-color: var(--bg-primary);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.goalInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.goalInfo h3 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.goalProgress {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.progressBar {
+  height: 0.5rem;
+  background-color: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary), var(--success));
+  border-radius: 9999px;
+  transition: width 0.3s ease;
+}
+
+.deadline {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.activities {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activityItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: var(--bg-primary);
+  border-radius: var(--radius);
+}
+
+.activityIcon {
+  font-size: 1.5rem;
+  min-width: 2rem;
+  text-align: center;
+}
+
+.activityInfo {
+  flex: 1;
+}
+
+.activityInfo h3 {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.activityInfo p {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  margin-bottom: 0.25rem;
+}
+
+.activityInfo time {
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.activityStatus {
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-sm);
+  text-transform: capitalize;
+}
+
+.decreased {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: var(--success);
+}
+
+.achieved {
+  background-color: rgba(59, 130, 246, 0.1);
+  color: var(--primary);
+}
+
+.tips {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tips li {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.tips li::before {
+  content: "•";
+  color: var(--primary);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 1.5rem 1rem;
+  }
+
+  .header h1 {
+    font-size: 2.5rem;
+  }
+
+  .header p {
+    font-size: 1.1rem;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .chartContainer {
+    height: 250px;
+  }
+
+  .goalInfo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+} 

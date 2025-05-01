@@ -1,0 +1,124 @@
+.calculator {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.unitToggle {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  justify-content: center;
+}
+
+.unitButton {
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  min-width: 100px;
+  text-align: center;
+}
+
+.unitButton:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.unitButton.active {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  color: white;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.inputGroup label {
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputWrapper input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  padding-right: 3rem;
+  background-color: var(--bg-primary);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius);
+  color: var(--text-primary);
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.inputWrapper input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+.inputWrapper .unit {
+  position: absolute;
+  right: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.calculateButton {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  color: white;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
+
+.calculateButton:hover {
+  transform: translateY(-2px);
+}
+
+.error {
+  color: var(--error);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 768px) {
+  .unitButton {
+    padding: 0.5rem 1rem;
+    min-width: 80px;
+  }
+
+  .inputWrapper input {
+    font-size: 0.875rem;
+  }
+
+  .calculateButton {
+    font-size: 0.875rem;
+  }
+} 

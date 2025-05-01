@@ -1,0 +1,169 @@
+.resultContainer {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.resultContainer:hover {
+  transform: translateY(-2px);
+}
+
+.title {
+  color: var(--text-primary);
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.result {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.result h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.bmiValue {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  line-height: 1;
+}
+
+.category {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.scale {
+  position: relative;
+  height: 80px;
+  padding-top: 20px;
+}
+
+.marker {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  color: var(--text-primary);
+  font-size: 1.2rem;
+  transition: left 0.3s ease;
+}
+
+.ranges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  background: linear-gradient(
+    to right,
+    var(--underweight) 25%,
+    var(--normal) 25%,
+    var(--normal) 50%,
+    var(--overweight) 50%,
+    var(--overweight) 75%,
+    var(--obese) 75%
+  );
+  height: 8px;
+  border-radius: var(--radius);
+  margin-bottom: 1rem;
+}
+
+.ranges span {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: center;
+  padding-top: 1rem;
+}
+
+.underweight {
+  color: var(--underweight) !important;
+}
+
+.normal {
+  color: var(--normal) !important;
+}
+
+.overweight {
+  color: var(--overweight) !important;
+}
+
+.obese {
+  color: var(--obese) !important;
+}
+
+.healthTips {
+  margin-top: 2rem;
+}
+
+.healthTips h3 {
+  color: var(--text-primary);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.tipsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.tipsList li {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.tipsList li::before {
+  content: "•";
+  color: var(--overweight);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 768px) {
+  .resultContainer {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .bmiValue {
+    font-size: 3rem;
+  }
+
+  .category {
+    font-size: 1.1rem;
+  }
+
+  .ranges span {
+    font-size: 0.7rem;
+  }
+
+  .healthTips h3 {
+    font-size: 1.125rem;
+  }
+
+  .tipsList li {
+    font-size: 0.875rem;
+  }
+}

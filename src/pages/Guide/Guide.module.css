@@ -1,0 +1,236 @@
+.guidePage {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.section p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.card {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.categories li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: var(--radius);
+  background-color: var(--bg-primary);
+}
+
+.categories .range {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.categories .category {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.underweight {
+  color: var(--underweight);
+}
+
+.normal {
+  color: var(--normal);
+}
+
+.overweight {
+  color: var(--overweight);
+}
+
+.obese {
+  color: var(--obese);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.infoCard {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.infoCard:hover {
+  transform: translateY(-2px);
+}
+
+.infoCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.infoCard p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.limitationsCard {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  transition: transform 0.2s ease;
+}
+
+.limitationsCard:hover {
+  transform: translateY(-2px);
+}
+
+.limitationsList {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+
+.limitationsList li {
+  color: var(--text-secondary);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  line-height: 1.5;
+}
+
+.limitationsList li::before {
+  content: "•";
+  color: var(--primary);
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tipCard {
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.tipCard:hover {
+  transform: translateY(-2px);
+}
+
+.tipCard h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.tipCard p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+
+  .section h2 {
+    font-size: 1.75rem;
+  }
+
+  .content {
+    gap: 3rem;
+  }
+
+  .card,
+  .limitationsCard {
+    padding: 1.5rem;
+  }
+
+  .categories li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+} 
