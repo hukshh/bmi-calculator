@@ -2,7 +2,6 @@
 
 A modern, responsive Body Mass Index (BMI) calculator built with React and Vite. This application helps users calculate and track their BMI with an intuitive interface and comprehensive health information.
 
-![BMI Calculator Screenshot](public/screenshot.png)
 
 ## Features
 
