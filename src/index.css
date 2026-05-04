@@ -1,50 +1,102 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Colors */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
+  /* Modern Colors - Deep Space Palette */
+  --bg-primary: #050810;
+  --bg-secondary: #0c1221;
+  --bg-glass: rgba(15, 23, 42, 0.6);
+  --bg-glass-bright: rgba(30, 41, 59, 0.4);
+  
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
-  --primary: #3b82f6;
+  --text-dim: #64748b;
+  
+  --primary: #6366f1;
+  --primary-glow: rgba(99, 102, 241, 0.3);
+  --secondary: #a855f7;
+  --accent: #22d3ee;
+  
   --success: #10b981;
-  --border-color: #334155;
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-glow: rgba(255, 255, 255, 0.05);
   
-  /* BMI Category Colors */
-  --underweight: #eab308;
-  --normal: #22c55e;
+  /* BMI Category Colors - Vibrant */
+  --underweight: #fbbf24;
+  --normal: #10b981;
   --overweight: #f97316;
-  --obese: #ef4444;
+  --obese: #f43f5e;
   
-  /* Shadows */
-  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  /* Shadows & Glass */
+  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
   
   /* Border Radius */
-  --radius-sm: 0.375rem;
-  --radius: 0.5rem;
-  --radius-lg: 0.75rem;
+  --radius-sm: 0.5rem;
+  --radius: 1rem;
+  --radius-lg: 1.5rem;
+  --radius-xl: 2rem;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
   background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(168, 85, 247, 0.15) 0px, transparent 50%);
   color: var(--text-primary);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-card-bright {
+  background: var(--bg-glass-bright);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-lg);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-dim);
 }
 
 button {
   font-family: inherit;
+  cursor: pointer;
 }
 
 input, select {
@@ -52,36 +104,24 @@ input, select {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: 'Fira Code', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
 @media (max-width: 768px) {
   html {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
 /* Accessibility focus styles */
-:focus {
-  outline: 2px solid var(--normal);
-  outline-offset: 2px;
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
 }
 
-button:focus {
-  outline: 2px solid var(--normal);
-  outline-offset: 2px;
-}
-
-/* Print styles */
-@media print {
-  body {
-    background: white;
-    color: black;
-    font-size: 12pt;
-  }
-
-  @page {
-    margin: 1cm;
-  }
+/* Custom Selection Color */
+::selection {
+  background: var(--primary-glow);
+  color: var(--text-primary);
 }
