@@ -54,172 +54,172 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
 .header {
   text-align: center;
-  padding: 2rem 1rem;
-  background-color: var(--bg-secondary);
+  padding: 4rem 1rem 3rem;
   margin-bottom: 2rem;
 }
 
 .header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.05em;
   margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, var(--primary), var(--success));
+  background: linear-gradient(135deg, var(--primary), var(--secondary), var(--accent));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 0 20px var(--primary-glow));
 }
 
 .header p {
   color: var(--text-secondary);
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-}
-
-.guideButton {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  padding: 0.75rem 1.5rem;
-  background-color: var(--primary);
-  color: white;
-  border: none;
-  border-radius: var(--radius);
-  font-weight: 500;
-  text-decoration: none;
-  transition: background-color 0.2s ease;
-}
-
-.guideButton:hover {
-  background-color: var(--primary-hover);
+  font-size: 1.25rem;
+  font-weight: 300;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
 .nav {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.5rem;
+  margin-top: 2rem;
+  background: var(--bg-glass);
+  backdrop-filter: blur(8px);
+  padding: 0.5rem;
+  border-radius: 100px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--border-color);
 }
 
 .navLink {
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius);
-  transition: all 0.2s ease;
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  font-weight: 500;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .navLink:hover {
   color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.navLinkActive {
+  background: var(--primary) !important;
+  color: white !important;
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .main {
   flex: 1;
-  padding: 0 1rem 2rem;
-  max-width: 1200px;
+  padding: 0 1rem 4rem;
+  max-width: 1400px;
   margin: 0 auto;
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .grid {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  width: 100%;
-  max-width: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 3rem;
+  align-items: start;
 }
 
 .leftColumn,
 .rightColumn {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
-  width: 100%;
+  gap: 2.5rem;
 }
 
 .calculatorContainer {
-  width: 100%;
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  transition: transform 0.2s ease;
+  composes: glass-card from global;
+  padding: 2.5rem;
+  transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
 .calculatorContainer:hover {
-  transform: translateY(-2px);
-}
-
-.chartSection {
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  transition: transform 0.2s ease;
-}
-
-.chartSection:hover {
-  transform: translateY(-2px);
-}
-
-.error {
-  color: var(--error);
-  font-size: 0.875rem;
-  margin-top: 0.5rem;
-  padding: 0.75rem;
-  background-color: rgba(220, 38, 38, 0.1);
-  border-radius: var(--radius);
-  border-left: 3px solid var(--error);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .footer {
   text-align: center;
-  padding: 2rem;
-  background-color: var(--bg-secondary);
-  color: var(--text-secondary);
-  width: 100%;
+  padding: 3rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border-color);
 }
 
-@media print {
-  .header, .footer, .chartSection {
-    display: none;
-  }
+/* Background Blobs */
+.bgBlobs {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
 
+.blob {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.2;
+  animation: float 20s infinite alternate;
+}
+
+.blob1 {
+  background: var(--primary);
+  top: -100px;
+  left: -100px;
+}
+
+.blob2 {
+  background: var(--secondary);
+  bottom: -100px;
+  right: -100px;
+  animation-delay: -5s;
+}
+
+@keyframes float {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(100px, 50px) scale(1.1); }
+  100% { transform: translate(-50px, 100px) scale(0.9); }
+}
+
+@media (max-width: 1024px) {
   .grid {
-    display: block;
-  }
-
-  .calculatorContainer {
-    box-shadow: none;
-    padding: 0;
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin: 0 auto;
   }
 }
 
 @media (max-width: 768px) {
-  .header h1 {
-    font-size: 2rem;
+  .header {
+    padding: 3rem 1rem 2rem;
   }
-
+  
   .nav {
-    flex-wrap: wrap;
+    width: 100%;
+    border-radius: var(--radius);
   }
-
-  .guideButton {
-    position: static;
-    margin-top: 1.5rem;
-    display: inline-block;
-  }
-
-  .main {
-    padding: 1.5rem 1rem;
-  }
-
-  .calculatorContainer {
-    padding: 1.5rem;
+  
+  .navLink {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
   }
 }
