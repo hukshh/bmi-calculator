@@ -26,7 +26,9 @@ const BmiHistory = ({ history }) => {
 
   return (
     <div className={styles.historyCard}>
-      <h2>BMI History</h2>
+      <div className={styles.header}>
+        <h2>Activity Log</h2>
+      </div>
       <div className={styles.historyList}>
         {sortedHistory.map((entry, index) => {
           const trend = getBmiTrend(
