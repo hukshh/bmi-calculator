@@ -1,65 +1,73 @@
 .profile {
-  width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: var(--bg-secondary);
-  border-radius: var(--radius-lg);
+  composes: glass-card from global;
   padding: 2rem;
-}
-
-.profile h2 {
-  font-size: 1.5rem;
-  color: var(--text-primary);
-  margin-bottom: 1.5rem;
-  text-align: center;
+  width: 100%;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.header h2 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin: 0;
 }
 
 .editButton {
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  border: 2px solid var(--primary);
-  color: var(--primary);
-  border-radius: var(--radius);
+  padding: 0.5rem 1.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  border-radius: 100px;
   cursor: pointer;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  font-weight: 600;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .editButton:hover {
-  background-color: var(--primary);
-  color: white;
+  background: var(--primary);
+  border-color: var(--primary);
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .info {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
 }
 
 .field {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem;
-  background-color: var(--bg-primary);
+  flex-direction: column;
+  gap: 0.4rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
   border-radius: var(--radius);
+  border: 1px solid var(--border-color);
 }
 
 .label {
-  color: var(--text-secondary);
-  font-weight: 500;
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .value {
   color: var(--text-primary);
-  font-weight: 600;
+  font-weight: 700;
+  font-size: 1.1rem;
 }
 
 .form {
@@ -71,31 +79,34 @@
 .inputGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.6rem;
 }
 
 .inputGroup label {
-  color: var(--text-secondary);
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .inputGroup input,
 .inputGroup select {
   width: 100%;
-  padding: 0.75rem 1rem;
-  background-color: var(--bg-primary);
-  border: 2px solid var(--border-color);
+  padding: 0.9rem 1.1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--border-color);
   border-radius: var(--radius);
   color: var(--text-primary);
   font-size: 1rem;
-  transition: border-color 0.2s ease;
+  transition: all 0.3s ease;
 }
 
-.inputGroup input:focus,
-.inputGroup select:focus {
-  outline: none;
+.inputGroup input:focus {
+  background: rgba(255, 255, 255, 0.05);
   border-color: var(--primary);
+  box-shadow: 0 0 0 4px var(--primary-glow);
+  outline: none;
 }
 
 .buttons {
@@ -106,43 +117,44 @@
 
 .saveButton,
 .cancelButton {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem;
   border-radius: var(--radius);
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
-  transition: transform 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   flex: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
 }
 
 .saveButton {
-  background: linear-gradient(135deg, var(--primary), var(--success));
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
   color: white;
   border: none;
+  box-shadow: 0 10px 20px -5px var(--primary-glow);
 }
 
 .cancelButton {
-  background-color: transparent;
-  border: 2px solid var(--border-color);
+  background: transparent;
+  border: 1px solid var(--border-color);
   color: var(--text-secondary);
 }
 
-.saveButton:hover,
-.cancelButton:hover {
+.saveButton:hover {
   transform: translateY(-2px);
+  filter: brightness(1.1);
+  box-shadow: 0 15px 25px -5px var(--primary-glow);
 }
 
-@media (max-width: 768px) {
-  .profile {
-    padding: 1.5rem;
-  }
+.cancelButton:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
 
-  .field {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.25rem;
+@media (max-width: 480px) {
+  .info {
+    grid-template-columns: 1fr;
   }
-
-  .buttons {
-    flex-direction: column;
-  }
-} 
+}
+ 

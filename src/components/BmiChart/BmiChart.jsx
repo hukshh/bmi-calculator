@@ -102,9 +102,17 @@ const BmiChart = ({ history }) => {
 
   return (
     <div className={styles.chartCard}>
-      <h2>BMI History</h2>
+      <div className={styles.header}>
+        <h2>Trend Analysis</h2>
+      </div>
       <div className={styles.chartContainer}>
         <Line data={data} options={options} />
+      </div>
+      <div className={styles.legend}>
+        <div className={styles.legendItem}>
+          <div className={styles.legendColor} style={{ background: 'var(--primary)' }}></div>
+          <span>BMI Index</span>
+        </div>
       </div>
     </div>
   );
